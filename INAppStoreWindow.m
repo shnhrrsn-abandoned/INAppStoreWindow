@@ -52,7 +52,7 @@
 #define IN_COLOR_NOTMAIN_BOTTOM_L [NSColor colorWithDeviceWhite:0.655 alpha:1.0]
 
 /** Corner clipping radius **/
-const CGFloat INCornerClipRadius = 4.0;
+const CGFloat INCornerClipRadius = 2.0;
 
 NS_INLINE CGFloat INMidHeight(NSRect aRect){
     return (aRect.size.height * (CGFloat)0.5);
@@ -903,7 +903,7 @@ NS_INLINE CGGradientRef INCreateGradientWithColors(NSColor *startingColor, NSCol
         if (self.verticallyCenterTitle) {
             docButtonIconFrame.origin.y = floor(NSMidY(titleBarFrame) - INMidHeight(docButtonIconFrame));
         } else {
-            docButtonIconFrame.origin.y = NSMaxY(titleBarFrame) - NSHeight(docButtonIconFrame);
+            docButtonIconFrame.origin.y = NSMaxY(titleBarFrame) - NSHeight(docButtonIconFrame) - 7.0;
         }
 
         [docIconButton setFrame:docButtonIconFrame];
@@ -934,9 +934,9 @@ NS_INLINE CGGradientRef INCreateGradientWithColors(NSColor *startingColor, NSCol
             if (self.verticallyCenterTitle) {
                 versionsButtonFrame.origin.y = floor(NSMidY(titleBarFrame) - INMidHeight(versionsButtonFrame));
             } else {
-                versionsButtonFrame.origin.y = NSMaxY(titleBarFrame) - NSHeight(versionsButtonFrame);
+                versionsButtonFrame.origin.y = NSMaxY(titleBarFrame) - NSHeight(versionsButtonFrame) - 5.0;
             }
-
+			
             [versionsButton setFrame:versionsButtonFrame];
 
             // Also ensure that the title font is set
@@ -953,9 +953,9 @@ NS_INLINE CGGradientRef INCreateGradientWithColors(NSColor *startingColor, NSCol
                 if (self.verticallyCenterTitle) {
                     textFieldFrame.origin.y = round(NSMidY(titleBarFrame) - INMidHeight(textFieldFrame));
                 } else {
-                    textFieldFrame.origin.y = NSMaxY(titleBarFrame) - NSHeight(textFieldFrame);
+                    textFieldFrame.origin.y = NSMaxY(titleBarFrame) - NSHeight(textFieldFrame) - 1.0;
                 }
-
+				
                 [textField setFrame:textFieldFrame];
 
                 // Also ensure that the font is set
